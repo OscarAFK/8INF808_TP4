@@ -216,6 +216,11 @@ void Mutation(std::vector<tSolution> unePop, int iTarget, int iBest, tSolution &
 												+ unDE.F * (unePop[R4].X[d] - unePop[R5].X[d]);
 			break;
 		case BEST1: //le vecteur mutant est créé en ajoutant une perturbation à Best à travers 1 différence pondérée de solutions sélectionnées aléatoirement
+			R1 = iBest;
+			do R2 = rand() % unDE.NP; while (R2 == iTarget || R2 == R1);
+			do R3 = rand() % unDE.NP; while (R3 == iTarget || R3 == R1 || R3 == R2);
+			for (d = 0; d < unProb.D; d++)
+				unMutant.X[d] = unePop[R1].X[d] + unDE.F * (unePop[R2].X[d] - unePop[R3].X[d]);
 			break;
 	}
 	//Confinement d'intervalle pour chaque dimension de la solution
