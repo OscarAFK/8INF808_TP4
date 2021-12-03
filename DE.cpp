@@ -73,7 +73,7 @@ int main(int NbParam, char *Param[])
 	LeDE.TypeCr = EXP;										//**Spécifie le type de croisement  - Voir Entete.h
 	
 	//**Spécifications du problème à traiter
-	LeProb.Fonction = ALPINE;								//**Spécifie le problème traité  - Voir Entete.h
+	LeProb.Fonction = ROSENBROCK;								//**Spécifie le problème traité  - Voir Entete.h
 	InitialisationDomaineVariable(LeProb);
 
 	//**Dimension du vecteur de la population, initialisation des solutions avec des valeurs entre Xmin et Xmax
@@ -133,8 +133,8 @@ void InitialisationDomaineVariable(tProblem &unProb)
 {
 	switch(unProb.Fonction)
 	{
-		case ALPINE:		unProb.Xmin = -10.0;	unProb.Xmax = 10.0;	unProb.D = 200; break;
-		case SPHERE:		unProb.Xmin = -5.12;	unProb.Xmax = 5.12; unProb.D = 100; break;
+		case ALPINE:		unProb.Xmin = -10.0;	unProb.Xmax = 10.0;	unProb.D = 100; break;
+		case SPHERE:		unProb.Xmin = -5.12;	unProb.Xmax = 5.12; unProb.D = 200; break;
 		case EGGHOLDER:		unProb.Xmin = -512;		unProb.Xmax = 512;	unProb.D = 2; break;
 		case ROSENBROCK:	unProb.Xmin = -10;		unProb.Xmax = 10;	unProb.D = 10; break;
 		default:			unProb.Xmin = 0.0;		unProb.Xmax = 0.0;	unProb.D = 0; break; 
