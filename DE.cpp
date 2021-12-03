@@ -165,6 +165,17 @@ void EvaluationSolution(tSolution &Sol, tProblem unProb, tAlgoDE &unDE)
 			}
 			break;
 
+		case EGGHOLDER: //Eggholder: Min -959.6407 en (512,404.2319)
+			valeur = -(Sol.X[1]+47) * sin(sqrt(abs(Sol.X[1]+ Sol.X[0]*0.5+47)))
+				- Sol.X[0] * sin(sqrt(abs(Sol.X[0] - ( Sol.X[1] + 47))));
+			break;
+
+		case ROSENBROCK: //Rosenbrock: Min 0 en (0,0 ... 0)
+			for (d = 0; d < unProb.D-1; d++)
+			{
+				valeur += 100*pow(Sol.X[d+1] - Sol.X[d]* Sol.X[d], 2) + pow(Sol.X[d]-1, 2);
+			}
+			break;
 		default: valeur = FLT_MAX;
 	}
 	//Ne pas enlever/modifier
