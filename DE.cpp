@@ -243,6 +243,13 @@ void Croisement(tSolution unTarget, tSolution unMutant, tSolution &unTrial, tPro
 	switch (unDE.TypeCr)
 	{
 			case BIN:	//Croisement de type binomial (ou uniform)
+				unTrial = unTarget;
+				for(int i =0; i< unTrial.X.size();i++){
+					Alea = AleaDouble(0,1);
+					if (Alea<=unDE.CR){
+						unTrial.X[i] = unMutant.X[i];
+					}
+				}
 				break;
 			case EXP:	//Croisement de type exponentiel (ou 2-point)
 				unTrial = unTarget;  //Copie du vecteur cible dans le vecteur essai
